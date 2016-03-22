@@ -1,0 +1,10 @@
+.form-horizontal.col-xs-offset-4.col-xs-4
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    = devise_error_messages!
+    %h3 Forgot your password?   
+    .form-group.col-xs-12 
+      = f.email_field :email, autofocus: true, :class => "col-xs-offset-2 col-xs-8", :placeholder => "email"
+    .actions.form-group.col-xs-12
+      = f.submit "Send me reset password instructions", :class => "btn btn-primary col-xs-offset-2 col-xs-8"
+    %p.links.col-xs-offset-1.col-xs-8
+      = render "devise/shared/links"
