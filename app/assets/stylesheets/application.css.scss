@@ -1,8 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-header{
-	width: 100%;
+body {
+	max-height: 1000px;
+}
+header {
 	position: relative;
 	.info-bar {
 	float: left;
@@ -52,6 +54,9 @@ h1, h2, h3 {
 	text-align: center;
 	color: #7D7D7D;
 }
+content {
+	height: 100%;
+}
 form {
 	h3 {
 		margin-left: -30px;
@@ -72,7 +77,7 @@ form {
 }
 .links {
 	font-size: 16px;
-	a:hover {
+	&:hover {
 		text-decoration: none;
 	}
 }
@@ -87,10 +92,20 @@ form {
 .notice {
 	color: green;
 	text-align: center;
+	margin-bottom:20px;
+	&:empty {
+		margin: 0;
+		padding: 0;
+	}
 }
+
 .alert {
 	color: red;
 	text-align: center;
+	&:empty{
+		margin: 0;
+		padding: 0;
+	}
 }
 #error_explanation {
 	color: red;
@@ -128,4 +143,29 @@ input[type="checkbox"] {
 	a:hover {
 		text-decoration: none;
 	}
+}
+.chat {
+	background: #C8CBCC;
+	border: 1px solid #ccc;
+	border-radius: 10px 10px 10px 10px;
+	overflow-y: scroll;
+	height: 500px;
+	background: #E7E7E7;
+}
+.chat-message {
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 20px 20px 20px 20px;
+}
+.name {
+	font-weight: bold;
+}
+.time {
+	font-size: 10px;
+	float: right;
+}
+.header-new-message {
+	float: right;
+	margin-right: 30px;
+	margin-top: 83px;
 }

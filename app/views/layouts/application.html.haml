@@ -18,7 +18,10 @@
           %p
             Age: 
             = current_user.age
+          = link_to 'Log out', destroy_user_session_path, :method => :delete, class: "links"
+      = link_to 'New message', new_message_path, class: "links header-new-message"
     .message.col-xs-12
-      %p.notice.text-center= notice
-      %p.alert.text-center= alert
-    = yield
+      .notice.text-center= notice
+      .alert.text-center= alert
+    %content  
+      = yield
