@@ -1,0 +1,46 @@
+%h3 All chats
+.col-xs-offset-4.col-xs-4.chat
+  - @chats.each do |chat|
+    .col-xs-12.chat-message
+      %p Chat Title: #{chat.name}
+      %p Receivers: #{chat.user_id}
+      %p Messages: #{chat.messages.size}
+      %p Creator #{chat.author}
+      - if chat.status
+        %p Status: Read
+      - else
+        = button_to "Read", set_read_user_chat_path(current_user, chat)
+      / chat.set_status_read(chat), 
+      / = link_to 'set status read', set_status_read_user_chat(chat)
+      / = button_to "set read status", chat_path(Chat.find_by(name: name)), :method => :put
+      / = form_tag chat_path(Chat.find_by(name: name)), method: 'put' do
+      /   = radio_button_tag :status, true
+      / = submit_tag "Set read status"
+      / = chat.set_read_status, link_to 'Read status'
+      = link_to '|delete chat', user_chat_path(current_user, chat), method: :delete
+      = link_to '|new message|', new_user_chat_message_path(current_user, chat)
+      = link_to 'show all messages|', user_chat_messages_path(current_user, chat)
+      = link_to 'edit chat|', edit_user_chat_path(current_user, chat)
+  /   .col-xs-offset-4.col-xs-4.chat
+  / - Chat.pluck('DISTINCT name').each do |name|
+  / .col-xs-12.chat-message
+  /   = name
+  /   = @users_id = Chat.where(name: name).pluck(:users_id)
+  /     %p
+  /       Sender #{chat.author}
+  /     %p
+  /       = @users_id = Chat.where(name: chat).pluck(:users_id)
+  /       %br
+  / = link_to 'delete chat', chat_path(Chat.find_by(name: chat)), method: :delete
+  / %p
+  / = link_to 'new message', new_chat_message_path(chat)
+  / %p
+  / = link_to 'show all messages', chat_messages_path(chat.id)
+
+  / = chat
+  / = @users_id = Chat.where(name: chat).pluck(:users_id)
+  / %br
+  /   - Chat.pluck('DISTINCT name').each do |name|
+  /     = name
+  /     - Chat.where(name: name).pluck(:users_id)
+  /       =users_id

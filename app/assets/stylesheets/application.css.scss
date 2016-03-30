@@ -123,6 +123,12 @@ form {
 .remember-label {
 	padding: 0;
 }
+input:empty {
+	border-color: 1px solid red;
+}
+input:focus {
+	border-color: 1px solid green;
+}
 input[type="text"], 
 input[type="number"],
 input[type="email"],
@@ -148,8 +154,7 @@ input[type="checkbox"] {
 	background: #C8CBCC;
 	border: 1px solid #ccc;
 	border-radius: 10px 10px 10px 10px;
-	overflow-y: scroll;
-	height: 500px;
+	height: auto;
 	background: #E7E7E7;
 }
 .chat-message {

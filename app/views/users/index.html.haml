@@ -2,7 +2,7 @@
   - if user_signed_in?
     Hello, #{current_user.name}
     = link_to 'Log out', destroy_user_session_path, :method => :delete
-    = link_to 'Create message', new_message_path
+    / = link_to 'Create chat', new_user_chat_path(current_user.id)
   - else
     .main-links.col-xs-12
       = link_to 'Log in', new_user_session_path, :class => "btn btn-success col-xs-offset-3 col-xs-2"

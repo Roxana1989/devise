@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   root to: 'users#index'
   get '/users' => 'users#index', as: :user_root # creates user_root_path
   devise_for :user, path: '', :path_names => { :sign_in => "login", :sign_out => "logout" }
-  resources :messages
+  resources :users do
+    resources :chats do
+      # get :set_read, on: :member
+      post :set_read, on: :member
+      resources :messages
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

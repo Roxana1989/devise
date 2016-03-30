@@ -1,0 +1,11 @@
+.col-xs-offset-4.col-xs-4.chat
+  %p.text-left.name
+    = current_user.name
+  %p
+    = @message.text_message
+  %p.time
+    = @message.created_at.strftime("%d.%m.%y %H:%M")
+  %p  
+    = link_to 'delete message', message_path(@message.id), method: :delete
+.col-xs-offset-4.col-xs-4
+  = link_to 'New message', new_message_path

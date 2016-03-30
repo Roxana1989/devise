@@ -1,0 +1,9 @@
+.form-horizontal.col-xs-offset-4.col-xs-4
+  = form_for(@chat, :url => {controller: 'chats', action: 'update'}) do |f|
+    %h3 Edit chat
+    .form-group.col-xs-12
+      = f.text_field :name, autofocus: true, class: "col-xs-offset-2 col-xs-8", placeholder: "name"
+    .form-group.col-xs-12
+      = f.text_field :user_id, class: "col-xs-offset-2 col-xs-8", placeholder: "user id"
+    .actions.form-group.col-xs-12
+      = f.submit "edit", class: "btn btn-primary col-xs-offset-2 col-xs-8"

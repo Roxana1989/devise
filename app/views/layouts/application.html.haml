@@ -8,8 +8,8 @@
     = csrf_meta_tags
   %body
     %header.nav.navbar.navbar-default
-      .info-bar    
-        - if user_signed_in?
+      - if user_signed_in?
+        .info-bar    
           - if current_user
             = current_user.avatar.exists? ? image_tag(current_user.avatar.url(:thumb)) : image_tag("missing.png")
           %p
@@ -19,9 +19,9 @@
             Age: 
             = current_user.age
           = link_to 'Log out', destroy_user_session_path, :method => :delete, class: "links"
-      = link_to 'New message', new_message_path, class: "links header-new-message"
-    .message.col-xs-12
-      .notice.text-center= notice
-      .alert.text-center= alert
-    %content  
+        = link_to 'New Chat', new_user_chat_path(current_user.id), class: "links header-new-message"
+    %section
+      .message.col-xs-12
+        .notice.text-center= notice
+        .alert.text-center= alert
       = yield

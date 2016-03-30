@@ -1,0 +1,13 @@
+%h3 Chat #{@chat.name} >> Messages
+.col-xs-offset-4.col-xs-4.chat
+  - @messages.each do |m|
+    .col-xs-12.chat-message
+      %p.text-left.name
+        Author: #{m.user_id}
+      %p
+        = m.text_message
+        / = link_to 'delete message', chat_message_path(m[:id]), method: :delete
+  = link_to 'Back', user_chats_path
+  %br
+  = link_to "New message", new_user_chat_message_path
+  / #read.btn.btn-default

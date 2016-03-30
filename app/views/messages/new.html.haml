@@ -1,0 +1,7 @@
+.form-horizontal.col-xs-offset-4.col-xs-4
+  = form_for(:message, :url => {controller: 'messages', action:'create'}) do |f|
+    %h3 New message
+    .form-group.col-xs-12
+      = f.text_area :text_message, autofocus: true, class: "col-xs-offset-2 col-xs-8", placeholder: "hi"
+    .actions.form-group.col-xs-12
+      = f.submit "Send", class: "btn btn-primary col-xs-offset-2 col-xs-8"
